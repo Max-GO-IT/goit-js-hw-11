@@ -1,9 +1,6 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
 import { fetchImages } from './pixabay-api.js';
 import { renderImages } from './render-functions.js';
 
@@ -16,24 +13,23 @@ searchForm.addEventListener('submit', (event) => {
   const searchQuery = document.querySelector('#search-input').value.trim();
 
   if (searchQuery === '') {
-    return; // Якщо поле пусте, нічого не робимо
+    return; 
   }
 
-  gallery.innerHTML = ''; // Очищення галереї
-  loading.classList.remove('hidden'); // Показати індикатор завантаження
+  gallery.innerHTML = '';
+  loading.classList.remove('hidden');
 
   fetchImages(searchQuery)
     .then(images => {
       renderImages(images);
-      loading.classList.add('hidden'); // Приховати індикатор завантаження
+      loading.classList.add('hidden'); 
     })
     .catch(error => {
-      // Виведення повідомлення про помилку через iziToast
       iziToast.error({
         title: 'Помилка!',
         message: 'Щось пішло не так. Спробуйте пізніше.',
       });
-      loading.classList.add('hidden'); // Приховати індикатор завантаження
+      loading.classList.add('hidden'); 
     });
 });
 
