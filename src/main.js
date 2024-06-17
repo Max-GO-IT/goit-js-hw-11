@@ -14,32 +14,18 @@ searchForm.addEventListener('submit', (event) => {
   const searchQuery = document.querySelector('#search-input').value.trim();
 
   if (searchQuery === '') {
-    return; 
+    return;
   }
 
   gallery.innerHTML = '';
   loading.classList.remove('hidden');
 
-  fetchImages(searchQuery)
+  fetchImages(searchQuery, 1)
     .then(images => {
       renderImages(images);
-      loading.classList.add('hidden'); 
+      loading.classList.add('hidden');
     })
     .catch(error => {
-      iziToast.error({
-        title: 'Помилка!',
-        message: 'Щось пішло не так. Спробуйте пізніше.',
-      });
-      loading.classList.add('hidden'); 
+      loading.classList.add('hidden');
     });
-});
-
-let lightbox = new SimpleLightbox('.gallery a', {
-  /* Параметри SimpleLightbox */
-  captionDelay: 250,
-  captionsData: 'alt',
-});
-
-gallery.addEventListener('click', () => {
-  lightbox.refresh(); // Оновлення SimpleLightbox після додавання нових зображень
 });

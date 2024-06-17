@@ -13,5 +13,12 @@ export function fetchImages(query, page = 1) {
         throw new Error('Нічого не знайдено за вашим запитом');
       }
       return data.hits;
+    })
+    .catch(error => {
+      iziToast.error({
+        title: 'Помилка!',
+        message: error.message,
+      });
+      throw error; 
     });
 }
