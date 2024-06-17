@@ -2,7 +2,7 @@ export function renderImages(images) {
     const gallery = document.querySelector('#gallery');
     const markup = images.map(image => `
       <div class="photo-card">
-        <a href="${image.largeImageURL}">
+        <a class="gallery-link" href="${image.largeImageURL}">
           <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
         </a>
         <div class="info">
@@ -11,6 +11,12 @@ export function renderImages(images) {
           </p>
           <p class="info-item">
             <b>${image.views}</b> views
+          </p>
+          <p class="info-item">
+            <b>${image.comments}</b> views
+          </p>
+          <p class="info-item">
+            <b>${image.downloads}</b> views
           </p>
         </div>
       </div>
