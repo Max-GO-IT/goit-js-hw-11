@@ -4,6 +4,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchImages } from './pixabay-api.js';
 import { renderImages } from './render-functions.js';
 
+
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('#gallery');
 const loading = document.querySelector('#loading');
