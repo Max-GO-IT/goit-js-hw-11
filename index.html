@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Пошук зображень</title>
+  <link rel="stylesheet" href="style.css" /> 
+  <link
+    href="https://unpkg.com/simplelightbox@latest/dist/simple-lightbox.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <form id="search-form">
+    <label for="search-input">Пошуковий запит</label>
+    <input type="text" id="search-input" />
+    <button type="submit">Пошук</button>
+  </form>
+
+  <div id="gallery"></div>
+
+  <div id="loading" class="hidden">Завантаження...</div>
+
+  <script src="https://unpkg.com/simplelightbox@latest/dist/simple-lightbox.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
