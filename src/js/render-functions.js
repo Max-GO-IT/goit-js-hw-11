@@ -13,10 +13,10 @@ export function renderImages(images) {
             <b>${image.views}</b> views
           </p>
           <p class="info-item">
-            <b>${image.comments}</b> views
+            <b>${image.comments}</b> comments
           </p>
           <p class="info-item">
-            <b>${image.downloads}</b> views
+            <b>${image.downloads}</b> downloads
           </p>
         </div>
       </div>
