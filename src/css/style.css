@@ -68,7 +68,7 @@
   z-index: 100; 
 }
 
-#loading .loader {
+ .hidden {
   display: none;
 }
 
