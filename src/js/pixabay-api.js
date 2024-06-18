@@ -17,7 +17,7 @@ export function fetchImages(query) {
       if (data.hits.length === 0) {
         throw iziToast.error({
           title: 'Помилка!',
-          message: 'Нічого не знайдено за вашим запитом',
+          message: 'Sorry, there are no images matching your search query. Please try again!',
         });
       }
       return data.hits;
