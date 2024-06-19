@@ -3,7 +3,9 @@ import "simplelightbox/dist/simple-lightbox.min.css";
  
 import { fetchImages } from './js/pixabay-api.js';
 import { renderImages } from './js/render-functions.js';
+import iziToast from "izitoast";
 
+import "izitoast/dist/css/iziToast.min.css";
 
 
 
@@ -11,7 +13,7 @@ import { renderImages } from './js/render-functions.js';
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('#gallery');
 const loading = document.querySelector('#loading');
-//loading.style.display = "none";
+loading.style.display = "none";
 searchForm.addEventListener('submit', (event) => {
 
   event.preventDefault();
@@ -20,18 +22,24 @@ searchForm.addEventListener('submit', (event) => {
   if (searchQuery === '') {
     return;
   }
-
+  loading.classList.remove('hidden');
   gallery.innerHTML = '';
-  document.getElementById("loading").style.display = "none";
-  loading.style.display = "none";
+  
+  loading.style.display = "block";
 
   fetchImages(searchQuery)
     .then(images => {
       renderImages(images);
-      loading.style.display = "none";
+     
     })
+    .then(post=>{loading.style.display = "none";})
     .catch(error => {
-      loading.style.display = "flex";
+    loading.style.display = "none";
+      iziToast.error({
+        title: 'Ошибка!',
+        message: 'Ошибка на странице!!',
+      });
+
     });
 });
 

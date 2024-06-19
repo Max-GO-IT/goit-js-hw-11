@@ -24,7 +24,7 @@ export function fetchImages(query) {
     })
     .catch(error => {
       iziToast.error({
-        title: 'Помилка!',
+        title: 'Ошибка при загрузке',
         message: error.message,
       });
       throw error; 
