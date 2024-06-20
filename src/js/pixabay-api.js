@@ -1,8 +1,3 @@
-import iziToast from "izitoast";
-// Додатковий імпорт стилів
-import "izitoast/dist/css/iziToast.min.css";
-
-
 export function fetchImages(query) {
   const url = `https://pixabay.com/api/?key=44433569-eda6d7623baf54ab2611b04f8&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
 
@@ -15,16 +10,17 @@ export function fetchImages(query) {
     })
     .then(data => {
       if (data.hits.length === 0) {
-        throw iziToast.error({
-          title: 'Помилка!',
-          message: 'Sorry, there are no images matching your search query. Please try again!',
+        iziToast.info({
+          title: 'Не знайдено зображень!',
+          message: 'На жаль, немає зображень, що відповідають вашому пошуковому запиту. Спробуйте ще раз!',
         });
+        throw new Error('Не знайдено зображень'); 
       }
       return data.hits;
     })
     .catch(error => {
       iziToast.error({
-        title: 'Ошибка при загрузке',
+        title: 'Помилка!',
         message: error.message,
       });
       throw error; 
